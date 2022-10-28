@@ -1,0 +1,119 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+</head>
+
+<body>
+
+<div id="proj-head">Environmental Transportation Optimization</div>
+<div class="menu-bar">
+    <ul>
+        <li>
+            <a href="/frontPage">User</a>
+            <ul>
+                <li>
+                    <a href="/insertUser">Insert User</a>
+                </li>
+                <li>
+                    <a href="/getAllUser">Get All User</a>
+                </li>
+                <li>
+                    <a href="/deleteUser">Delete User</a>
+                </li>
+                <li>
+                    <a href="/updateUser">Update User</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/frontPage">Admit</a>
+            <ul>
+                <li>
+                    <a href="/insertAdmin">Insert Admin</a>
+                </li>
+                <li>
+                    <a href="/getAllAdmin">Get All Admin</a>
+                </li>
+                <li>
+                    <a href="/deleteAdmin">Delete Admin</a>
+                </li>
+                <li>
+                    <a href="/updateAdmin">Update Admin</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/frontPage">Vehicle</a>
+            <ul>
+                <li>
+                    <a href="/insertVehicle">Insert Vehicle</a>
+                </li>
+                <li>
+                    <a href="/getAllVehicle">Get All Vehicle</a>
+                </li>
+                <li>
+                    <a href="/deleteVehicle">Delete Vehicle</a>
+                </li>
+                <li>
+                    <a href="/updateVehicle">Update Vehicle</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/frontPage">Warehouse</a>
+            <ul>
+                <li>
+                    <a href="/insertWarehouse">Insert Warehouse</a>
+                </li>
+                <li>
+                    <a href="/deleteWarehouse">Get All Warehouse</a>
+                </li>
+                <li>
+                    <a href="/getAllWarehouse">Delete Warehouse</a>
+                </li>
+                <li>
+                    <a href="/updateWarehouse">Update Warehouse</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="/getAllPath">Show All Path</a>
+        </li>
+    </ul>
+
+</div>
+
+<div class="container">
+    <h1>List All Vehicle</h1> <br>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td>Vehicle ID</td>
+            <td>Vehicle Name</td>
+            <td>Vehicle Gas Cost</td>
+            <td>Displacement</td>
+            <td>Emission Create</td>
+            <!-- <td>Location</td> -->
+        </tr>
+        </thead>
+        <tbody>
+        <% for (let i=0;i<vehicleList.length;i++){ %>
+        <tr>
+            <td><%= vehicleList[i]._id %> </td>
+            <td><%= vehicleList[i].typeName %> </td>
+            <td><%= vehicleList[i].typeGasCost %> </td>
+            <td><%= vehicleList[i].displacement %> </td>
+            <td><%= vehicleList[i].emissionCreate %> </td>
+        </tr>
+        <%}%>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

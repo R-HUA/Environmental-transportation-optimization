@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="index.css"/>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <script src="server.js"></script>
+</head>
+
+<body>
+<!--<div id="proj-head">Environmental Transportation Optimization</div>-->
+<div class="container">
+  <h1>Welcome, Select Your Vehicle</h1> <br>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td>Vehicle ID</td>
+      <td>Vehicle Name</td>
+      <td>Vehicle Gas Cost</td>
+      <td>Displacement</td>
+      <td>Emission Create</td>
+      <td>Select</td>
+      <!-- <td>Location</td> -->
+    </tr>
+    </thead>
+    <tbody>
+    <% for (let i=0;i<vehicleList.length;i++){ %>
+    <tr>
+      <td ><%= vehicleList[i]._id %> </td>
+      <td><%= vehicleList[i].typeName %> </td>
+      <td><%= vehicleList[i].typeGasCost %> </td>
+      <td><%= vehicleList[i].displacement %> </td>
+      <td><%= vehicleList[i].emissionCreate %> </td>
+
+<!--      <td><button class="selectButton" onclick="chooseVehicle(123)" >Select</button></td>-->
+      <form action="/selectVehicle" method="post">
+
+        <input type = 'hidden' id="selectVehicle" name="selectVehicle" value=<%= vehicleList[i]._id%>/>
+        <td><button class="selectButton" type="submit">Select</button></td>
+
+      </form>
+    </tr>
+    <%}%>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

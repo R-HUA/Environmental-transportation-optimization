@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Add Map</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href='style.css' />
+
+    <base href="/">
+</head>
+
+<body>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!--*************layer part*************-->
+
+<!--include jquery.js and layer.js-->
+<!--<script src="../layer/jquery.js"></script>
+<script src="../layer/layer.js"></script>-->
+
+<!--open the log in layer-->
+<!--<script type="text/javascript">
+    // layer.open({
+    //     type: 2,
+    //     title:'Please Log in',
+    //     area: ['600px', '360px'],
+    //     shadeClose: false,
+    //     content:'./login.html',
+    //     // ban close button
+    //     closeBtn:0
+    // });
+</script>-->
+
+<!--*************Google MAP API part*************-->
+    <div id="proj-head">Environmental Transportation Optimization</div>
+    <div id="panel" >
+        <div id="SearchLabel">Input your destination:</div>
+        <div class="search-input" id="search-box">
+            <input type="search" id="site-search" name="q" aria-label="Search through site content">
+<!--            <div id="search-overlay-search" class="search-input-overlay search">-->
+<!--                <button id="search-button" >-->
+<!--                    <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg" alt="Search"/>-->
+<!--                </button>-->
+<!--            </div>-->
+
+            <div id="submitRoute ">
+                <form action="addRoute" method="post" id="form-submit" target="_blank">
+                    <input type = 'hidden' id="distance" name="distance" />
+                    <input type = 'hidden' id="emission"  name="emission" />
+                    <input type = 'hidden' id="destination" name="destination" />
+                    <input type = 'hidden' id="origin" name="origin" value="Monash Uni"/>
+                </form>
+
+            </div>
+            <button type="button" id="search-button" class="button">Search</button>
+            <button type="button" id="confirm" class="button">Confirm</button>
+        </div>
+
+    </div>
+
+    <!--sidebar to show the navigation -->
+    <div id="container">
+        <div id="map"></div>
+        <div id="sidebar">
+            <h3>Navigation Information</h3>
+            <div id="directPanel"></div>
+        </div>
+    </div>
+    <script src = 'test.js'>  </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj2Zxfx_Noo6WxNXHdLFsZ-ABicW6EY0Y&callback=initMap&libraries=places,geometry&language=en&region=AU">
+    </script>
+
+<div id="buttonSet">
+<button type="button" onclick="displayFood()" class="button shadow">Food</button>
+<button type="button" onclick="displayGas()" class="button shadow">Gas Station</button>
+<button type="button" onclick="clearMarker()" class="button shadow">Clear Marker</button>
+<!--<button type="button">Call</button>-->
+<button type="button" class="button shadow">Information</button>
+<!-- <button type="button" onclick="fixedRoute()" class="button shadow">Fixed Route</button>
+<button type="button" onclick="changeMode()" class="button shadow">change mode</button> -->
+
+</div>
+</body>
+</html>
